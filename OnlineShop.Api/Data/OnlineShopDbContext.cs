@@ -4,12 +4,8 @@ using OnlineShop.Api.Entities;
 
 namespace OnlineShop.Api.Data
 {
-    public class OnlineShopDbContext: DbContext
+    public class OnlineShopDbContext(DbContextOptions<OnlineShopDbContext> options) : DbContext(options)
     {
-        public OnlineShopDbContext(DbContextOptions<OnlineShopDbContext> options) : base(options)
-        { 
-
-        }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Product>().Property(product => product.Price).HasPrecision(8, 2);
