@@ -1,0 +1,31 @@
+﻿@using System.Globalization
+@inherits DisplayProductsBase
+
+@foreach (var item in Products)
+{
+    <div class="col-md-3 mb-2">
+        <a href="#">
+            <div class="card">
+                <style>
+                    .fixed-size-thumbnail{
+                        width: 375px;
+                        height:390px;
+                        object-fit:scale-down;
+                    }
+                </style>
+                <img class="img-thumbnail fixed-size-thumbnail" src="@item.ImageUrl">
+                <div class="card-body">
+                    <h5 class="card-title mb-3">
+                        @item.Name
+                    </h5>
+                    <p class="card-text">
+                        <b>
+                            @item.Price.ToString("C",CultureInfo.CreateSpecificCulture("fi-FI"))
+                        </b>
+                    </p>
+                </div>
+
+            </div>
+        </a>
+    </div>
+}
