@@ -23,5 +23,19 @@ namespace OnlineShop.Api.Extensions
                         CategoryName = productCategory.Name,
                     }).ToList();
         }
+        public static ProductDto ConvertToDto(this Product product, ProductCategory productCategory)
+        {
+            return new ProductDto
+            {
+                Id = product.Id,
+                Name = product.Name,
+                Description = product.Description,
+                ImageUrl = product.ImageURL,
+                Price = product.Price,
+                Quantity = product.Quantity,
+                CategoryId = product.CategoryId,
+                CategoryName = productCategory.Name,
+            };
+        }
     }
 }
